@@ -1,0 +1,49 @@
+---
+import { navigation } from "../data/navigation";
+
+const items = navigation;
+---
+
+<header>
+  <div class="container flex items-center justify-between">
+    <div class="logo">
+      <img src="/public/h_logo.svg" alt="" />
+    </div>
+    <nav class="flex">
+      {items.map((item) => <a class="nav-item">{item.name}</a>)}
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    background-color: var(--color-secondary-light);
+  }
+
+  .logo > img {
+    width: 55px;
+  }
+
+  nav {
+    color: var(--color-primary);
+    font-size: 20px;
+    gap: 16px;
+  }
+
+  .nav-item {
+    cursor: pointer;
+    padding: 4px;
+    text-align: center;
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+
+  .nav-item--active {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    width: 150px;
+    border-radius: 50px;
+    pointer-events: none;
+  }
+</style>
